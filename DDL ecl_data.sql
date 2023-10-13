@@ -23,7 +23,7 @@ CREATE TABLE clients ##Posee los datos de los clientes del estudio contable. id,
     id_business_type INT DEFAULT 1,
     id_industry INT DEFAULT 1,
     id_tax_regime INT DEFAULT 1,
-    created_date DATE NOT NULL,
+    onboarding_date DATE NOT NULL,
     is_current_client BOOLEAN DEFAULT TRUE,
     exit_date DATE DEFAULT '2099-12-31',
     FOREIGN KEY(id_business_type) REFERENCES business_types(id_business_type),
@@ -45,7 +45,7 @@ CREATE TABLE charges ## Tabla de listado de impuestos o cargos. IVA, Ganancias, 
 CREATE TABLE out_payments ## Tabla de pagos de impuestos o cargos realizados por el estudio en nombre de clientes, como asi tambien pagos del estudio propios.
 (
     id_outpay INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    created_date DATE NOT NULL, 
+    payment_date DATE NOT NULL, 
     id_client INT NOT NULL,
     id_charge INT DEFAULT 1,
     amount NUMERIC DEFAULT 0,
@@ -55,7 +55,7 @@ CREATE TABLE out_payments ## Tabla de pagos de impuestos o cargos realizados por
 CREATE TABLE in_payments ##tabla de cobros de dinero realizados por el estudio asociados a clientes
 (
     id_inpay INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    created_date DATE NOT NULL, 
+    receipt_date DATE NOT NULL, 
     id_client INT NOT NULL,
     amount NUMERIC DEFAULT 0,
     FOREIGN KEY (id_client) REFERENCES clients(id_client)
@@ -63,7 +63,7 @@ CREATE TABLE in_payments ##tabla de cobros de dinero realizados por el estudio a
 CREATE TABLE liabilities ##Tabla de presupúestación e imputación de obligaciones a clientes. Ya sea honorarios, cargos o impuestos.
 (
     id_liability INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    created_date DATE NOT NULL, 
+    due_date DATE NOT NULL, 
     id_client INT NOT NULL,
     id_charge INT DEFAULT 1,
     amount NUMERIC DEFAULT 0,
