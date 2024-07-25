@@ -22,7 +22,7 @@ Este proyecto es una aplicación de base de datos contable desarrollada utilizan
 
 1. Clona el repositorio a tu máquina local.
    ```bash
-   git clone https://github.com/tu-usuario/tu-proyecto.git
+   git clone https://github.com/Vverty/ecl_data.git
 
 PROYECTO ENTREGABLE:
 [SQL ecl_data Felipe Lorenzo.pdf](https://github.com/Vverty/ecl_data/files/13759441/SQL.ecl_data.Felipe.Lorenzo.pdf)
